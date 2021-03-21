@@ -1,0 +1,84 @@
+@import 'variables';
+@import 'breakpoints';
+@import 'global';
+.container{
+    padding:0px;
+}
+.main{
+    width:100vw;
+    height:100vh;
+    @include breakpoint-down(medium){
+        flex-direction: column;
+    }
+    @media only screen and (min-device-width: 568px) and (orientation:landscape) {
+        flex-direction: row;
+    }
+    &__ice,&__cake{
+        width: 50%;
+        height: 100%;
+        position: relative;
+        top:0px;
+        left:0px;
+        @include breakpoint-down(medium){
+            width:100%;
+        }
+    }
+    &__overlay{
+        position:absolute;  
+        top:0px;
+        left:0px;
+        z-index:1;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        background-position: center;
+        transition: all 500ms ease-in-out;
+    }
+    &__image{
+        position: absolute;
+        top:0px;
+        left:0px;
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-size: cover;
+        filter: blur(5px);
+        transition: all 500ms ease-in-out;
+        &.ice{ background-image: url('../img/home/picture-1.jpg');}
+        &.cake{ background-image: url('../img/home/picture-2.jpg');}
+    }
+    &__logo{
+        opacity:1 !important;  
+        height: 207px;
+        width: 207px;
+        padding: 15px;
+        border: 2px solid white;
+        border-radius: 100%;
+        transition: all 200ms ease-in-out;
+        @media only screen and (min-device-width: 568px) and (max-device-width: 767px) and (orientation:landscape) {
+            height: 137px;
+            width: 137px;
+        }
+        @include breakpoint-down(small){
+            height: 127px;
+            width: 127px;
+        }
+    }
+    &__link{
+        position: relative; 
+        left:0px;
+        top:0px;
+        opacity:1 !important;  
+        z-index: 2;
+        &:hover{
+            .main__logo.ice{
+                border: 2px solid $orange;
+                padding: 20px;
+            }
+            .main__logo.cake{
+                border: 2px solid rgb(187, 119, 63);
+                padding: 20px;
+            }
+        }
+    }
+}

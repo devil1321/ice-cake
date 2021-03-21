@@ -1,0 +1,339 @@
+@import 'variables';
+@import 'breakpoints';
+@import 'animations';
+@import 'global';
+.overlay{
+    z-index: 2;
+}
+.container{
+   .hero{
+       position: relative;
+       top:0px;
+       left:0px;
+       &__text-wrapper{
+           position: absolute;
+           z-index:1;
+           top:50%;
+           left:-70px;
+           width: 28%;
+           padding: 25px 50px 25px 110px;
+           transform: translateY(-50%);
+           animation: heroTextBox 1s ease-in-out forwards;    
+           @include breakpoint-down(small){
+                width: 70%;
+                left:-70px;  
+                padding:0px;
+            }
+            &.ice{  
+                background-color: $orange;
+                @include breakpoint-down(small){
+                    padding-left:20px;  
+                }
+           }
+           &.cake{
+            background-color: $beige;
+            h1,p{color:$brown;}
+                @include breakpoint-down(small){
+                    padding-left:20px;  
+                }
+            }    
+           
+           h1,p{
+               color:white;
+               opacity: 0;
+               transition: all 500ms ease-in-out;
+               @include breakpoint-down(small){
+                   margin-left: 55px;
+               }
+           }   
+           p{
+               @include breakpoint-down(small){
+                   display: none;
+               }
+               @media only screen and (min-device-width: 480px) and (max-device-width: 640px) {
+                   display:none;
+               }
+               @media only screen and (min-device-width: 640px) and (max-device-width: 812px) and (orientation:'landscape') {
+                display:none;
+            }
+           }
+           h1{
+                animation: fadeIn 1s ease-in-out forwards;    
+                animation-delay: 1.2s;
+             
+                
+           }
+           p{
+                animation: fadeIn 1s ease-in-out forwards;    
+                animation-delay: 1.8s;
+           }
+           .btn{
+                margin-bottom: 20px;
+                opacity: 0;
+                transition: all 500ms ease-in-out;
+                animation: fadeIn 1s ease-in-out forwards;
+                animation-delay: 2.2s;
+                @include breakpoint-down(small){
+                    display: none;
+                }        
+            }
+           
+       }
+       &__image{
+           width: 100%;
+       }
+   
+   }
+   .article-wrapper{
+       position: relative;
+       top:-4px;
+       left:0px;
+   }
+   .article{
+       width: 50%;  
+       @include breakpoint-up(large){
+           min-width: 430px;
+       }
+       @include breakpoint-down(small){
+           width: 100%;
+           margin:20px 0px;
+       }
+       &__text{ 
+           box-sizing: border-box;
+           &.first{
+               padding:50px 50px 100px 0px;
+           
+            }    
+           &.second{
+               padding:100px 30px 100px 100px;
+               @include breakpoint-down(large){
+                    padding:100px 30px 100px 50px;
+               }
+               @include breakpoint-down(medium){
+                padding:50px 20px 100px 50px;
+            }
+
+            } 
+            @include breakpoint-down(small){
+                padding:0px !important;
+            }   
+       }
+  
+       &__image{
+           width: 100%;
+           @include breakpoint-down(small){
+                display:none;
+            } 
+       }
+       .btn{
+           margin-top: 80px;
+           @include breakpoint-down(small){
+               margin:20px 0px  ;
+           }
+       }
+       &__images-sm{
+        img{
+            width: 50% !important;
+            @include breakpoint-up(medium){
+                    display: none;
+                }
+            }
+        }
+        &:nth-of-type(1){
+            @include breakpoint-down(large){
+                img{
+                    margin-top:-50px;
+                }
+            }
+            @include breakpoint-down(medium){
+                img{
+                    margin-top:-60px;
+                }
+            }
+             
+       }
+       &:nth-of-type(3){
+        position: relative;
+        top:0px;
+        left:0px;
+         @include breakpoint-down(large){
+             img{
+                 margin-top:50px;
+             }
+         }
+         @include breakpoint-down(medium){
+            img{
+                margin-top:50px !important;
+            }
+        }
+     }
+   }
+
+   
+
+}
+.feature-wrapper{  
+    @include breakpoint-down(small){
+        padding: 0px 10px;
+    }
+    .feature{
+        padding:50px 0px 50px 70px;
+        position: relative;
+        top:-23px;   
+        left:0px;
+        @include breakpoint-down(small){
+            padding:20px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        &.ice{
+            background-color: $orange;
+        }
+        &.cake{
+            background-color: $beige;
+        }
+        h2{
+            color:white;        
+        }
+        &__card-group{
+            padding: 30px 0px 40px 20px;
+            background-color: white;
+            height: 100%;
+            @include breakpoint-down(medium){
+                flex-wrap: wrap;
+            }
+            @include breakpoint-down(small){
+                padding:20px;
+            }
+        }
+        &__card{
+            position: relative;
+            top:-20px;
+            left:0px;
+            opacity: 0;
+            box-sizing: border-box;
+            width: calc(100% / 7);
+            height: 370px;
+            margin:0px 20px;
+            display: flex;
+            flex-direction: column;
+            transition: all 500ms ease-in-out;
+     
+            &:nth-of-type(4){
+                padding-top: 20px;
+                img{
+                    margin-bottom: 5px;
+                }
+            }
+            &:nth-of-type(7){
+                img{
+                    margin-bottom: -12px;   
+                }
+            }
+            img{
+                width: 100%;
+            }
+            p{
+                margin-top: 30px;
+            }
+            @include breakpoint-down(large){
+                height:390px
+            }
+            @include breakpoint-down(medium){
+                width:43%;
+                margin:0px auto;
+               
+            }
+            @media only screen and (min-device-width: 280px) and (max-device-width: 300px)  {
+                width:100%;
+            } 
+        }       
+    }
+    .white-box{
+        min-width: 70px;
+        height: 470px;
+        box-shadow: 0px 10px 10px rgba(0,0,0,0.15) ;
+        @include breakpoint-down(large){
+            height:490px
+        }
+        @include breakpoint-down(medium){
+           height: 1624px;;    
+           
+        }
+        @include breakpoint-down(small){
+            display: none;
+        }
+    } 
+}
+.feature-2{
+    box-sizing: border-box;
+    position: relative;
+    top:-23px;
+    left:0px;
+    margin-right: 70px;
+    color:white;
+    @include breakpoint-down(small){
+        margin:0px;
+        padding:20px 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    &.ice{
+        background-color: $purple;  
+    }
+    &.cake{
+        background-color: $brown;
+    }
+    &__text{
+        width: 50%;
+        height: 100%;
+        padding:40px 80px 20px;
+        @include breakpoint-down(medium){
+            width:100%;
+        }
+        @include breakpoint-down(small){
+            padding:0px;
+        }
+
+    }
+    &__image{
+        width: 50%;
+        @include breakpoint-down(medium){
+            display: none;
+        }
+    }
+    &__feature{
+        position: relative;
+        left:-690px;
+        top:0px;
+        height: 50px;
+        display: flex;
+        align-items: space-between;
+        transition: all 500ms ease-in-out;
+        @media only screen and (min-device-width: 280px) and (max-device-width: 300px)  {
+          margin:20px 0px;   
+        } 
+        img{
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            padding:5px;
+            border-radius: 100%;
+        }
+        &:not(:nth-of-type(1)){
+            p{
+                position: relative;
+                top: 6px;
+                left:0px;
+            }
+        }
+
+    }
+    .btn{
+        position: relative;
+        left:-550px;
+        top:0px;
+        margin-top: 20px;
+        transition: all 500ms ease-in-out;
+    }       
+}

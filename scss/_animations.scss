@@ -1,0 +1,20 @@
+@keyframes heroTextBox{
+    from{
+        left:-1000px;
+    }
+    to{
+        left:-70px;
+    }
+}
+
+
+@keyframes fadeIn{
+    from{
+        position: relative;
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
